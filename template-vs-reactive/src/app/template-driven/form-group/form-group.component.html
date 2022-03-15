@@ -1,8 +1,0 @@
-<div>
-  <h1>{{ title }} {{ finanzamt.name }}</h1>
-  <div>
-    <ng-container *ngFor="let prop of finanzamt | keyvalue">
-      <app-form-input [name]="prop.key" [(value)]="prop.value" [isPassword]="prop.key === 'name'"></app-form-input>
-    </ng-container>
-  </div>
-</div>

@@ -1,5 +1,5 @@
 <h3>Step Three</h3>
-<button (click)="addArray()">Add Array</button>
+<button type="button" (click)="addArray()">Add Array</button>
 
 <ng-container *ngIf="arrayName">
   <div [ngModelGroup]="arrayName">
@@ -8,11 +8,13 @@
     <button type="button" (click)="addFieldToArray()">+ And another one</button>
 
     <div *ngFor="let alias of formArray; let i=index">
-      <label for="alias-{{ i }}">Noice:</label>
-      <input id="alias-{{ i }}" type="text" ngModel>
+      <label [for]="'alias-' + i">Noice:</label>
+      <input [name]="'alias-' + i" [id]="'alias-' + i" type="text" ngModel>
     </div>
 
   </div>
 </ng-container>
 
-<button [disabled]="!parentForm.valid" type="submit">Save</button>
+<div>
+  <button [disabled]="!parentForm.valid" type="submit">Save</button>
+</div>

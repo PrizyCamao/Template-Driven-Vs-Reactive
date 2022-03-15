@@ -18,7 +18,7 @@ export class Step3Component implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.parentForm = this.parentControl.control;
+    this.parentForm = this.parentControl;
     console.log('step 3', this.parentControl.value);
   }
 
