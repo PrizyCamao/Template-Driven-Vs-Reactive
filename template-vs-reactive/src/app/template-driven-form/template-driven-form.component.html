@@ -1,14 +1,10 @@
 <div class="content">
   <ng-container *ngIf="!loading">
     <form #templateForm="ngForm" (ngSubmit)="onSubmit()">
-      <button type="button" (click)="setCurrentStep(1)">Step 1</button>
-      <button type="button" (click)="setCurrentStep(2)">Step 2</button>
-      <button type="button" (click)="setCurrentStep(3)">Step 3</button>
-
-      <app-step1 [(form)]="mainForm" (step)="setCurrentStep($event)"></app-step1>
+      <app-step1 [(form)]="mainForm"></app-step1>
 
       <ng-container *ngIf="mainForm.subFinanzamt">
-        <app-step2 [(form)]="mainForm.subFinanzamt" (step)="setCurrentStep($event)"></app-step2>
+        <app-step2 [(form)]="mainForm.subFinanzamt"></app-step2>
       </ng-container>
 
       <app-step3></app-step3>

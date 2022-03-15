@@ -12,13 +12,7 @@ export class Step2Component {
   @Input() public form: Finanzamt;
   @Output() public formChange = new EventEmitter<Finanzamt>();
 
-  @Output() private step = new EventEmitter<number>();
-
   public updateValues(): void {
     this.formChange.emit(this.form);
-  }
-
-  public nextStep(): void {
-    this.step.emit(2);
   }
 }

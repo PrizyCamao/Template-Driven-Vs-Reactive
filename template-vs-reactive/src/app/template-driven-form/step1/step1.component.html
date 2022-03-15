@@ -2,7 +2,7 @@
 
 <div>
   <label for="name">Finanzamt Name</label>
-  <input #name="ngModel" name="name" [(ngModel)]="form.name" (blur)="updateValues()" required />
+  <input #name="ngModel" name="name" [(ngModel)]="form.name" required />
 
   <div *ngIf="name.errors?.['required']">
     Name is required.
@@ -11,7 +11,7 @@
 
 <div>
   <label for="nr">Finanzamt Nummer</label>
-  <input #nr="ngModel" name="nr" [(ngModel)]="form.nr" (blur)="updateValues()" required />
+  <input #nr="ngModel" name="nr" [(ngModel)]="form.nr" required />
 
   <div *ngIf="nr.errors?.['required']">
     Name is required.
