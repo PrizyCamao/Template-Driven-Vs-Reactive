@@ -18,18 +18,18 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit() {
     this.mainForm = this._formBuilder.group({
-      name: ['Name', { validators: Validators.required }],
-      nr: ['Nr', { validators: Validators.required }],
+      name: ['', { validators: Validators.required }],
+      nr: ['', { validators: Validators.required }],
     }, { updateOn: "blur" });
 
     this.mainForm.addControl("subFinanzamt", this._formBuilder.group({
-      subName: ['sub Name', Validators.required],
-      subNr: ['sub Nr', Validators.required],
+      name: ['', Validators.required],
+      nr: ['', Validators.required],
     }));
 
-    // this._dataService.getFinanzamt().subscribe(data => {
-    //   this._formService.
-    // });
+    this._dataService.getFinanzamt$().subscribe(data => {
+      this.mainForm.patchValue(data);
+    });
   }
 
   save() {

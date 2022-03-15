@@ -8,21 +8,7 @@ import { TemplateDrivenFormComponent } from './template-driven-form.component';
 const routes: Routes = [
   {
     path: '',
-    component: TemplateDrivenFormComponent,
-    children: [
-      {
-        path: 'step-1',
-        component: Step1Component
-      },
-      {
-        path: 'step-2',
-        component: Step2Component
-      },
-      {
-        path: 'step-3',
-        component: Step3Component
-      }
-    ]
+    component: TemplateDrivenFormComponent
   },
 ];
 

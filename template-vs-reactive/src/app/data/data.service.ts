@@ -10,7 +10,7 @@ export class DataService {
 
   constructor() { }
 
-  public getFinanzamt(): Observable<Finanzamt> {
+  public getFinanzamt$(): Observable<Finanzamt> {
     return of({
       name: "First",
       nr: "1234",

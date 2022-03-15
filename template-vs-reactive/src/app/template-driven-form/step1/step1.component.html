@@ -1,14 +1,21 @@
 <h3>Step One</h3>
 
-<div class="form-group">
-  <div>
-    <label for="name">Finanzamt Name</label>
-    <input name="name" formControlName="name" />
-  </div>
-  <div>
-    <label for="nr">Finanzamt Nummer</label>
-    <input name="nr" formControlName="nr" />
+<div>
+  <label for="name">Finanzamt Name</label>
+  <input #name="ngModel" name="name" [(ngModel)]="form.name" (blur)="updateValues()" required />
+
+  <div *ngIf="name.errors?.['required']">
+    Name is required.
   </div>
 </div>
 
-<button [disabled]="!parentForm.controls.name.valid" routerLink="/reactive-form/step-2">Next</button>
+<div>
+  <label for="nr">Finanzamt Nummer</label>
+  <input #nr="ngModel" name="nr" [(ngModel)]="form.nr" (blur)="updateValues()" required />
+
+  <div *ngIf="nr.errors?.['required']">
+    Name is required.
+  </div>
+</div>
+
+<button [disabled]="!parentForm.valid" (click)="nextStep()">Next</button>

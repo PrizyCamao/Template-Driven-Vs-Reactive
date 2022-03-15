@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule
   ],
   providers: [
-    FormBuilder
+    FormBuilder,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,19 @@
-<p>step2 works!</p>
+<h3>Step Two</h3>
+
+<ng-container *ngIf="form">
+  <fieldset ngModelGroup="subFinanzamt">
+
+    <div>
+      <label for="subName">SubName</label>
+      <input name="subName" [(ngModel)]="form.name" (blur)="updateValues()" required/>
+    </div>
+
+    <div>
+      <label for="subNr">SubNr</label>
+      <input name="subNr" [(ngModel)]="form.nr" (blur)="updateValues()" required/>
+    </div>
+
+  </fieldset>
+</ng-container>
+
+<button [disabled]="!parentForm.valid" (click)="nextStep()">Next</button>

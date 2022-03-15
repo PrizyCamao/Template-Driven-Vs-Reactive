@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ControlContainer, NgForm } from '@angular/forms';
+import { Finanzamt } from 'src/app/models';
 
 @Component({
   selector: 'app-step2',
   templateUrl: './step2.component.html',
-  styleUrls: ['./step2.component.scss']
+  viewProviders: [{provide: ControlContainer, useExisting: NgForm}]
 })
 export class Step2Component implements OnInit {
 
-  constructor() { }
+  @Input() public form: Finanzamt;
+  @Output() public formChange = new EventEmitter<Finanzamt>();
 
-  ngOnInit(): void {
+  @Output() private step = new EventEmitter<number>();
+
+  public parentForm: any;
+
+  constructor(
+    private readonly parentControl: ControlContainer
+  ) {}
+
+  ngOnInit() {
+    this.parentForm = this.parentControl.control;
+    console.log('step 2', this.parentControl.value);
   }
 
+  public updateValues(): void {
+    this.formChange.emit(this.form);
+  }
+
+  public nextStep(): void {
+    this.step.emit(2);
+  }
 }

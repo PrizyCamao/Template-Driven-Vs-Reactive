@@ -10,7 +10,7 @@ import { Finanzamt } from '../models';
 })
 export class TemplateDrivenComponent {
 
-  public finanzamt$ = this.dataService.getFinanzamt();
+  public finanzamt$ = this.dataService.getFinanzamt$();
 
   constructor(private dataService: DataService) {}
 

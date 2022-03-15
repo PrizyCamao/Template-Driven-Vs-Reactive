@@ -1,15 +1,24 @@
 <div class="content">
-  <form #myForm="ngForm" (ngSubmit)="onSubmit()">
-    <button routerLink="step-1">Step 1</button>
-    <button routerLink="step-2">Step 2</button>
-    <button routerLink="step-3">Step 3</button>
+  <ng-container *ngIf="!loading">
+    <form #templateForm="ngForm" (ngSubmit)="onSubmit()">
+      <button type="button" (click)="setCurrentStep(1)">Step 1</button>
+      <button type="button" (click)="setCurrentStep(2)">Step 2</button>
+      <button type="button" (click)="setCurrentStep(3)">Step 3</button>
 
-    <router-outlet></router-outlet>
-  </form>
+      <app-step1 [(form)]="mainForm" (step)="setCurrentStep($event)"></app-step1>
 
-  <div class="form-ui form-value">
-    <h4>Current Form Value</h4>
-    <pre [innerHTML]="mainForm.value | prettyprint"></pre>
-    <h4>Form Validity: {{mainForm.valid}}</h4>
-  </div>
+      <ng-container *ngIf="mainForm.subFinanzamt">
+        <app-step2 [(form)]="mainForm.subFinanzamt" (step)="setCurrentStep($event)"></app-step2>
+      </ng-container>
+
+      <app-step3></app-step3>
+
+    </form>
+
+    <div class="form-ui form-value">
+      <h4>Current Form Value</h4>
+      <pre [innerHTML]="templateForm.value | json"></pre>
+      <h4>Form Validity: {{templateForm.valid}}</h4>
+    </div>
+  </ng-container>
 </div>
