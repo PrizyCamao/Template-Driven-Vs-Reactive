@@ -1,0 +1,4 @@
+<div>
+  <label>{{ name }}: </label>
+  <input [type]="isPassword ? 'password' : 'text'" [(ngModel)]="value" (blur)="onBlur()" required>
+</div>

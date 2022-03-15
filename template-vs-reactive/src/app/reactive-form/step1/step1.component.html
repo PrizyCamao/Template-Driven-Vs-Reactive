@@ -1,0 +1,14 @@
+<h3>Step One</h3>
+
+<div class="form-group">
+  <div>
+    <label for="name">Finanzamt Name</label>
+    <input name="name" formControlName="name" />
+  </div>
+  <div>
+    <label for="nr">Finanzamt Nummer</label>
+    <input name="nr" formControlName="name" />
+  </div>
+</div>
+
+<button [disabled]="!parentForm.name.valid" routerLink="/reactive-form/step-2">Next</button>

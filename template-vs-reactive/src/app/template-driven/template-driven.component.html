@@ -1,0 +1,12 @@
+<ng-container *ngIf="finanzamt$ | async as finanzamt">
+  <div>
+    Finanzamt
+  </div>
+
+  <form #myForm="ngForm" (ngSubmit)="validator(finanzamt) && onSubmitTemplateBased(finanzamt)">
+    <app-form-group title="Daten" [finanzamt]="finanzamt"></app-form-group>
+
+    <app-buttons></app-buttons>
+  </form>
+
+</ng-container>
