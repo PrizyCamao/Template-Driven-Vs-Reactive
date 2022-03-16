@@ -4,7 +4,7 @@
   <label for="name">Finanzamt Name</label>
   <input #name="ngModel" name="name" [(ngModel)]="finanzamt.name" required />
 
-  <div *ngIf="name.errors?.['required']">
+  <div *ngIf="name.hasError('required')">
     Name is required.
   </div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Host } from '@angular/core';
-import { ControlContainer, FormArray, FormGroup, FormGroupDirective } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ControlContainer, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-step2',
@@ -8,7 +8,7 @@ import { ControlContainer, FormArray, FormGroup, FormGroupDirective } from '@ang
 })
 export class Step2Component implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
 
-  ngOnInit() {  }
+  ngOnInit() {}
 }

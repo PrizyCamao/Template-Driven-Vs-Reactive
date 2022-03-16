@@ -10,7 +10,6 @@ import { Finanzamt } from '../models';
 })
 export class TemplateDrivenFormComponent implements OnInit {
 
-  public currentStep= 1;
   public finanzamt: Finanzamt;
   public loading = true;
 
@@ -23,17 +22,6 @@ export class TemplateDrivenFormComponent implements OnInit {
       this.finanzamt = data;
       this.loading = false;
     });
-  }
-
-  public setCurrentStep(step: number): void {
-    this.currentStep = step;
-  }
-
-  public getFinanzamt(finanzamt: Finanzamt | undefined): Finanzamt {
-    return finanzamt ?? {
-      name: "",
-      nr: ""
-    } as Finanzamt;
   }
 
   public onSubmit(): void {

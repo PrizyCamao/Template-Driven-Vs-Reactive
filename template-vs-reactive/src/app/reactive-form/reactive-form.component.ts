@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { DataService } from '../data/data.service';
+import { Finanzamt } from '../models';
 
 @Component({
   selector: 'app-reactive-form',
@@ -19,13 +20,13 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {
     this.mainForm = this._formBuilder.group({
       name: ['', { validators: Validators.required }],
-      nr: ['', { validators: Validators.required }],
+      nr: [{value: '', disabled: true}, Validators.required],
     }, { updateOn: "blur" });
 
-    this.mainForm.addControl("subFinanzamt", this._formBuilder.group({
-      name: ['', Validators.required],
-      nr: ['', Validators.required],
-    }));
+    // this.mainForm.addControl("subFinanzamt", this._formBuilder.group({
+    //   name: ['', Validators.required],
+    //   nr: ['', Validators.required],
+    // }));
 
     this._dataService.getFinanzamt$().subscribe(data => {
       this.mainForm.patchValue(data);
@@ -35,5 +36,15 @@ export class ReactiveFormComponent implements OnInit {
   save() {
     this.mainForm.markAllAsTouched();
     console.log(this.mainForm.value);
+    new Lol({id:1})
+  }
+}
+
+class Lol {
+  id: number;
+  name: string;
+
+  constructor(lol: Partial<Lol>) {
+    Object.assign(this, lol);
   }
 }

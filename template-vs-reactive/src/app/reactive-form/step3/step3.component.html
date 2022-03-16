@@ -1,15 +1,18 @@
 <h3>Step Three</h3>
+
 <button (click)="addArray()">Add Array</button>
 
 <ng-container *ngIf="arrayName">
   <div [formArrayName]="arrayName">
+
     <h2>{{ arrayName }}</h2>
     <button type="button" (click)="addFieldToArray()">+ And another one</button>
 
     <div *ngFor="let alias of formArray.controls; let i=index">
-      <label for="alias-{{ i }}">Noice:</label>
-      <input id="alias-{{ i }}" type="text" [formControlName]="i">
+      <label [for]="'alias-' + i">Noice:</label>
+      <input [id]="'alias-' + i" type="text" [formControlName]="i">
     </div>
+
   </div>
 </ng-container>
 
