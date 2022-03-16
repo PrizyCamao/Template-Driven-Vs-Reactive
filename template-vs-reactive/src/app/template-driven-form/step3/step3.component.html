@@ -1,13 +1,13 @@
 <h3>Step Three</h3>
 <button type="button" (click)="addArray()">Add Array</button>
 
-<ng-container *ngIf="arrayName">
-  <div [ngModelGroup]="arrayName">
+<ng-container *ngIf="arrayTitle">
+  <div [ngModelGroup]="arrayTitle">
 
-    <h2>{{ arrayName }}</h2>
+    <h2>{{ arrayTitle }}</h2>
     <button type="button" (click)="addFieldToArray()">+ And another one</button>
 
-    <div *ngFor="let alias of formArray; let i=index">
+    <div *ngFor="let alias of actualArray; let i=index">
       <label [for]="'alias-' + i">Noice:</label>
       <input [name]="'alias-' + i" [id]="'alias-' + i" type="text" ngModel>
     </div>

@@ -8,8 +8,8 @@ import { ControlContainer, NgForm } from '@angular/forms';
 })
 export class Step3Component implements OnInit {
 
-  public arrayName: string;
-  public formArray: string[];
+  public arrayTitle: string;
+  public actualArray: string[];
 
   public parentForm: any;
 
@@ -23,11 +23,11 @@ export class Step3Component implements OnInit {
   }
 
   public addArray(): void {
-    this.formArray = [""];
-    this.arrayName = "noicesArray";
+    this.actualArray = [""];
+    this.arrayTitle = "noicesArray";
   }
 
   public addFieldToArray(): void{
-    this.formArray.push("");
+    this.actualArray.push("");
   }
 }

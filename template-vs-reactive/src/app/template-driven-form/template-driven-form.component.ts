@@ -11,7 +11,7 @@ import { Finanzamt } from '../models';
 export class TemplateDrivenFormComponent implements OnInit {
 
   public currentStep= 1;
-  public mainForm: Finanzamt;
+  public finanzamt: Finanzamt;
   public loading = true;
 
   constructor(
@@ -20,7 +20,7 @@ export class TemplateDrivenFormComponent implements OnInit {
 
   ngOnInit(): void {
     this._dataService.getFinanzamt$().subscribe(data => {
-      this.mainForm = data;
+      this.finanzamt = data;
       this.loading = false;
     });
   }

@@ -1,10 +1,10 @@
 <div class="content">
   <ng-container *ngIf="!loading">
     <form #templateForm="ngForm" (ngSubmit)="onSubmit()">
-      <app-step1 [(form)]="mainForm"></app-step1>
+      <app-step1 [(finanzamt)]="finanzamt"></app-step1>
 
-      <ng-container *ngIf="mainForm.subFinanzamt">
-        <app-step2 [(form)]="mainForm.subFinanzamt"></app-step2>
+      <ng-container *ngIf="finanzamt.subFinanzamt">
+        <app-step2 [(finanzamt)]="finanzamt.subFinanzamt"></app-step2>
       </ng-container>
 
       <app-step3></app-step3>

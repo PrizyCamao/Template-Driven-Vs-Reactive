@@ -1,17 +1,15 @@
 <h3>Step Two</h3>
 
-<ng-container *ngIf="form">
-  <fieldset ngModelGroup="subFinanzamt">
+<fieldset ngModelGroup="subFinanzamt">
 
-    <div>
-      <label for="subName">SubName</label>
-      <input name="subName" [(ngModel)]="form.name" required/>
-    </div>
+  <div>
+    <label for="subName">SubName</label>
+    <input name="subName" [(ngModel)]="finanzamt.name" required />
+  </div>
 
-    <div>
-      <label for="subNr">SubNr</label>
-      <input name="subNr" [(ngModel)]="form.nr" required/>
-    </div>
+  <div>
+    <label for="subNr">SubNr</label>
+    <input name="subNr" [(ngModel)]="finanzamt.nr" required />
+  </div>
 
-  </fieldset>
-</ng-container>
+</fieldset>

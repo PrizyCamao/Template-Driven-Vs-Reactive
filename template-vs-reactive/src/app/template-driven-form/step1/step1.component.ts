@@ -9,10 +9,10 @@ import { Finanzamt } from 'src/app/models';
 })
 export class Step1Component {
 
-  @Input() public form: Finanzamt;
-  @Output() private formChange = new EventEmitter<Finanzamt>();
+  @Input() public finanzamt: Finanzamt;
+  @Output() private finanzamtChange = new EventEmitter<Finanzamt>();
 
   public updateValues(): void {
-    this.formChange.emit(this.form);
+    this.finanzamtChange.emit(this.finanzamt);
   }
 }
